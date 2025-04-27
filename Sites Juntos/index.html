@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Projetos Educacionais</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Lemon&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos combinados */
+        :root {
+            /* Estilos Guerra Fria */
+            --laranja-claro: #1235fa;
+            --alto-contraste-fundo: #000000;
+            --alto-contraste-texto: #ffffff;
+            --alto-contraste-link: #ff0000;
+            
+            /* Estilos Relógio */
+            --cor-de-fundo: #0d22e0;
+            --verde: #478329;
+            --branco: #FFFFFF;
+            --botao-ativo: #84d627;
+            --botao-inativo: rgba(59, 214, 59, 0.5);
+            --texto-fundo: rgb(93, 189, 202);
+        }
+
+        body {
+            font-family: 'Montserrat';
+        }
+
+        /* Estilos Guerra Fria */
+        .guerra-fria-section {
+            display: block;
+        }
+
+        .relogio-section {
+            display: none;
+            background-color: var(--cor-de-fundo);
+            color: var(--branco);
+            font-family: 'Chakra Petch', sans-serif;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #ffffff;
+        }
+
+        section {
+            padding-bottom: 5rem;
+        }
+
+        .nav-link {
+            color: #CB6D43;
+            font-weight: 600;
+        }
+
+        .inicio-fundo {
+            background-image: url('img/DALL·E\ 2025-03-03\ 19.03.55\ -\ A\ dramatic\ digital\ painting\ depicting\ the\ Cold\ War.webp');
+            background-size: cover;
+            background-position: right;
+            border-radius: 80px;
+            width: 100%;
+            height: 606px;
+            padding: 40px;
+            margin: 0 auto;
+        }
+
+        .img-inicio {
+            margin-top: 70px;
+        }
+
+        .img-inicio {
+            position: absolute;
+            right: 0;
+            top: 18rem;
+            width: 45rem;
+            height: auto;
+        }
+
+        .esquerda-conteudo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .botao-inicio {
+            background-color: var(--laranja-claro);
+            border-radius: 30px;
+            border: none;
+            width: 14em;
+            height: 3em;
+            align-content: center;
+        }
+
+        .display-4 {
+            text-shadow: -5px 5px var(--laranja-claro);
+        }
+
+        #tropicalia {
+            position: relative;
+            padding-top: 5rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-family: 'Lemon', serif;
+            font-size: 2.5em;
+            font-style: normal;
+            color: var(--laranja-claro);
+        }
+
+        #galeria {
+            background-color: #FAF4F4;
+        }
+
+        .fundo-galeria {
+            background-size: 180px 180px;
+        }
+
+        #contato {
+            background-image: url('img/4965007.jpg');
+            background-size: cover;
+            padding: 4rem 0;
+        }
+
+        .formulario {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        .formulario button {
+            background-color: #CB6D43;
+            border: none;
+            font-weight: bold;
+        }
+
+        .form-control {
+            background-color: #F1EDEF;
+        }
+
+        .menu-acessibilidade{
+            position: fixed;
+            top:2rem;
+            right:20px;
+            z-index: 1000;
+        }
+
+        .rotacao-botao{
+            transform: rotate(-90deg);
+            transform-origin: right center;
+        }
+
+        .opcoes-acessibilidade{
+            margin-top:10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .opcoes-acessibilidade button{
+            margin-bottom: 5px;
+        }
+        .apresenta-lista{
+            display: none;
+        }
+
+        .alto-contraste{
+            background-color: var(--alto-contraste-fundo);
+            color: var(--alto-contraste-texto);
+        }
+
+        .alto-contraste header,
+        .alto-contraste footer,
+        .alto-contraste .formulario{
+            background-color: var(--alto-contraste-fundo);
+            color: var(--alto-contraste-texto);
+        }
+
+        .alto-contraste .nav-link{
+            color: var(--alto-contraste-link);
+        }
+
+        .alto-contraste .botao-inicio,
+        .alto-contraste .formulario button,
+        .alto-contraste .btn-primary{
+            background-color: var(--alto-contraste-link);
+            color: var(--alto-contraste-fundo)
+        }
+
+        .alto-contraste #tropicalia {
+            background: none;
+        }
+
+        .alto-contraste #galeria {
+            background-color: var(--alto-contraste-fundo);
+        }
+        .alto-contraste .fundo-galeria {
+            background: none;
+        }
+
+        
+/* Estilos apenas para a seção do relógio */
+.relogio-section {
+    padding: 150px 420px;
+    background-color: #f0f4f8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-principal {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+.titulo-principal {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.titulo-principal span {
+    color: #007BFF;
+}
+
+.conteudo {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.botoes-relogio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.botao-relogio {
+    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.botao-relogio:hover {
+    background-color: #ccc;
+}
+
+.botao-relogio.ativo {
+    background-color: #007BFF;
+    color: white;
+}
+
+.abas-textos {
+    margin-top: 20px;
+}
+
+.aba-conteudo {
+    display: none;
+}
+
+.aba-conteudo.ativo {
+    display: block;
+    animation: fadeIn 0.5s;
+}
+
+.aba-conteudo-titulo-principal {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.aba-conteudo-titulo-secundario {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.contador-digito {
+    background: #007BFF;
+    color: white;
+    padding: 15px 10px;
+    border-radius: 8px;
+    min-width: 70px;
+}
+
+.contador-digito-numero {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.contador-digito-texto {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Estilo para o botão alternar projeto */
+#alternar-projeto {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+}
+
+#alternar-projeto:hover {
+    background: #0056b3;
+}
+
+
+
+        /* Botão de alternância */
+        .alternar-projeto {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 10px 20px;
+            background-color: #0033A0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Seção Guerra Fria -->
+    <div id="guerra-fria" class="guerra-fria-section">
+        <header class="p-5">
+            <nav class="container d-flex justify-content-between align-items-center">
+                <img src="img/image 1 (1).png" class="nav-img" loading="lazy">
+                <ul class="nav mt-5">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+                <div id="acessibilidade" class="menu-acessibilidade"> 
+                    <button id="botao-acessibilidade" class="btn btn-primary fw-bold rotacao-botao" aria-expanded="false">acessibilidade</button>
+                    <div id="opcoes-acessibilidade" class="opcoes-acessibilidade apresenta-lista">
+                        <button id="aumentar-fonte" class="btn btn-primary fw-bold" aria-label="Aumentar o tamanho da fonte">A+</button>
+                        <button id="diminuir-fonte" class="btn btn-primary fw-bold" aria-label="diminuir o tamanho da fonte">A-</button>
+                        <button id="alterna-contraste" class="btn btn-primary fw-bold" aria-label="Alterna o contraste de cores"> <i class="bi bi-shadows"></i></button>         
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="container my-5">
+            <section id="inicio" class="my-5">
+                <div class="inicio-fundo d-flex justify-content-between align-items-center">
+                    <div class="esquerda-conteudo">
+                        <h1 class="display-4 fst-italic fw-bold" style="color: #eb1919;">História da</h1>
+                        <img src="img/image 1 (1).png" class="mb-3" width="563" height="278" loading="lazy">
+                        <a href="#tropicalia" class="btn btn-lg botao-inicio fw-semibold" 
+                           style="background-color: #0033A0; border-color: #001F5B; color: white;">
+                            Quero conhecer!
+                        </a>
+                    </div>
+                    <img src="img/678-6784842_guerra-fria-png-transparent-png-removebg-preview.png" 
+                         alt="A imagem apresenta os dois 'mascotes' da guerra fria" 
+                         title="Os Mutantes - CC0 Domínio Público / Acervo Arquivo Nacional" 
+                         class="img-fluid img-inicio">
+                </div>
+            </section>
+            
+            <!-- Seções da Guerra Fria... (manter todo o conteúdo original) -->
+            <section id="tropicalia" class="my-5 pt-6 secao-tropicalia" tabindex="0" aria-label="Seção explicativa sobre a tropicália">
+                <div class="container d-flex align-items-center ">
+                    <div class="col-4 d-flex justify-content-center ">
+                        <img src="img/DALL·E 2025-03-13 18.27.27 - A digital illustration representing the Cold War division of the world into two blocs. On the left side, a dark, industrial cityscape with Soviet arch.webp" class="rounded-pill" width="273" height="331" loading="lazy">
+                    </div>
+                    <div class="col-5">
+                        <h2>Divisão do Mundo em Blocos</h2>
+                        <p class="p-2">A Guerra Fria dividiu o mundo em dois blocos antagônicos: o capitalista, liderado pelos EUA, e o socialista, liderado pela URSS. O bloco capitalista defendia a economia de mercado e a democracia liberal, enquanto o socialista promovia a economia planificada e o regime de partido único. Essa divisão criou alianças como a OTAN (EUA) e o Pacto de Varsóvia (URSS). Países em desenvolvimento tornaram-se campos de batalha ideológica, com cada superpotência buscando expandir sua influência. A Europa foi dividida pela "Cortina de Ferro", separando o Ocidente capitalista do Leste socialista. Essa bipolaridade moldou as relações internacionais por décadas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens">
+                <h2 class="text-center pt-5">Galeria</h2>
+                <div class="container p-3 mt-3 fundo-galeria ">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-4">
+                            <img src="img/simulado-de-histc3b3ria-e28093-guerra-fria.webp"
+                                class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/download 2.png" class="img-fluid rounded-5"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <div class="row mt-4 justify-content-md-center">
+                        <div class="col-md-4">
+                            <img src="img/images 2 (1).png" class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/duas-maos-pintadas-com-cores-sovieticas-e-estadunidenses-puxando-uma-corda-em-alusao-a-guerra-fria 1.png"
+                                class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+            <section id="tropicalia" class="my-5 pt-6 secao-tropicalia" tabindex="0" aria-label="Seção explicativa sobre a tropicália">
+                <div class="container d-flex align-items-center ">
+                    <div class="col-4 d-flex justify-content-center ">
+                        <img src="img/DALL·E 2025-03-13 18.29.06 - A powerful digital illustration representing the arms race during the Cold War. On one side, a Soviet missile silo with towering, red-tipped rockets a.webp" class="rounded-pill" width="273" height="331" loading="lazy">
+                    </div>
+                    <div class="col-5">
+                        <h2>Corrida Armamentista</h2>
+                        <p class="p-2">EUA e URSS travaram uma intensa corrida armamentista, especialmente na área de armas nucleares. Ambos desenvolveram arsenais capazes de destruir o planeta várias vezes, criando o conceito de MAD (Destruição Mútua Assegurada). Mísseis intercontinentais e submarinos nucleares foram produzidos em larga escala. Apesar da tensão, tratados como o SALT (1970) buscaram limitar o crescimento dos arsenais. A corrida espacial também refletiu essa competição, com marcos como o Sputnik (URSS) e a chegada à Lua (EUA). O medo de um conflito nuclear direto manteve o mundo em alerta constante durante décadas.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens">
+                <h2 class="text-center pt-5">Galeria</h2>
+                <div class="container p-3 mt-3 fundo-galeria ">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-4">
+                            <img src="img/teste-nuclear-da-operacao-castle-conduzida-pelos-eua-em-1954-quando-disputava-a-corrida-armamentista-contra-os-sovieticos 1 (1).png"
+                                class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/us-ussr-nuclear-arms-race-600nw-2473575597 1.png" class="img-fluid rounded-5"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <div class="row mt-4 justify-content-md-center">
+                        <div class="col-md-4">
+                            <img src="img/corrida-armamentista 1.png" class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/corrida-armamentista 2 (1).png"
+                                class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+            <section id="tropicalia" class="my-5 pt-6 secao-tropicalia" tabindex="0" aria-label="Seção explicativa sobre a tropicália">
+                <div class="container d-flex align-items-center ">
+                    <div class="col-4 d-flex justify-content-center ">
+                        <img src="img/DALL·E 2025-03-13 18.35.47 - A symbolic digital illustration representing the end of the Cold War. In the center, the Berlin Wall is being torn down by people from both sides, che.webp" class="rounded-pill" width="273" height="331" loading="lazy">
+                    </div>
+                    <div class="col-5">
+                        <h2>O Fim da Guerra Fria</h2>
+                        <p class="p-2">O fim da Guerra Fria começou com a crise econômica e política da URSS nos anos 1980, agravada pela política de abertura (Glasnost) e reestruturação (Perestroika) de Mikhail Gorbachev. Em 1989, o Muro de Berlim foi derrubado, simbolizando o colapso do bloco socialista na Europa. A Alemanha foi reunificada em 1990, e a URSS dissolveu-se oficialmente em 1991, pondo fim à bipolaridade mundial. Os EUA emergiram como a única superpotência global, e o capitalismo se consolidou como o sistema dominante. O fim da Guerra Fria marcou o início de uma nova era nas relações internacionais.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="galeria" tabindex="0" aria-label="Seção de galeria de imagens">
+                <h2 class="text-center pt-5">Galeria</h2>
+                <div class="container p-3 mt-3 fundo-galeria ">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-4">
+                            <img src="img/140731143026_reagan_gorbachev_624x351_ap.jpg 1.jpg"
+                                class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/his-pag-80-01 1.png" class="img-fluid rounded-5"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <div class="row mt-4 justify-content-md-center">
+                        <div class="col-md-4">
+                            <img src="img/nationalgeographic1491571 1.png" class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                        <div class="col-md-4">
+                            <img src="img/140731143026_reagan_gorbachev_624x351_ap.jpg 1 (1).png"
+                                class="img-fluid rounded-5" loading="lazy">
+                        </div>
+                    </div>
+                 </div>
+            </section>
+
+            <section id="contato">
+                <div class="container p-5 d-flex justify-content-center">
+                    <div class="col-md-8 col-lg-10 rounded-5 formulario">
+                        <h2 class="mb-3">Entre em contato</h2>
+                        <form>
+                            <div class="form-group mb-3">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" class="form-control rounded-3 mt-1"
+                                    placeholder="Digite seu nome completo">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control rounded-3 mt-1"
+                                    placeholder="Digite seu email">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea id="mensagem" name="mensagem" class="form-control rounded-4 mt-2" rows="4"
+                                    placeholder="Escreva sua mensagem"></textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-pill">Enviar
+                                    mensagem</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="text-center p-3 fst-italic">
+            <p>Acesse nossas redes:</p>
+            <i class="bi bi-whatsapp"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-tiktok"></i>
+            <p class="mt-3">Desenvolvido por Start by Alura. Projeto fictício sem fins comerciais.</p>
+        </footer>
+    </div>
+
+    <!-- Seção Relógio -->
+    <div id="relogio" class="relogio-section" style="display: none;">
+        <section class="conteudo-principal">
+            <h2 class="titulo-principal">Meus objetivos do ano<span>_</span></h2>
+            <div class="conteudo">
+                <div class="botoes-relogio">
+                    <button class="botao-relogio ativo">Livro</button>
+                    <button class="botao-relogio">Física</button>
+                    <button class="botao-relogio">Enem</button>
+                    <button class="botao-relogio">Aprender</button>
+                </div>
+                <div class="abas-textos">
+                    <div class="aba-conteudo ativo">
+                        <h3 class="aba-conteudo-titulo-principal">Ler o livro Cartas Chilenas</h3>
+                        <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+                        <div class="contador">
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="dias0">0</p>
+                                <p class="contador-digito-texto">dias</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="horas0">0</p>
+                                <p class="contador-digito-texto">horas</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="min0">0</p>
+                                <p class="contador-digito-texto">min</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="seg0">0</p>
+                                <p class="contador-digito-texto">seg</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aba-conteudo">
+                        <h3 class="aba-conteudo-titulo-principal">Estudar Física</h3>
+                        <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+                        <div class="contador">
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="dias1">0</p>
+                                <p class="contador-digito-texto">dias</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="horas1">0</p>
+                                <p class="contador-digito-texto">horas</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="min1">0</p>
+                                <p class="contador-digito-texto">min</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="seg1">0</p>
+                                <p class="contador-digito-texto">seg</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aba-conteudo">
+                        <h3 class="aba-conteudo-titulo-principal">Estudar para o Enem</h3>
+                        <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+                        <div class="contador">
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="dias2">0</p>
+                                <p class="contador-digito-texto">dias</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="horas2">0</p>
+                                <p class="contador-digito-texto">horas</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="min2">0</p>
+                                <p class="contador-digito-texto">min</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="seg2">0</p>
+                                <p class="contador-digito-texto">seg</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aba-conteudo">
+                        <h3 class="aba-conteudo-titulo-principal">Aprender algo novo</h3>
+                        <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
+                        <div class="contador">
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="dias3">0</p>
+                                <p class="contador-digito-texto">dias</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="horas3">0</p>
+                                <p class="contador-digito-texto">horas</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="min3">0</p>
+                                <p class="contador-digito-texto">min</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero" id="seg3">0</p>
+                                <p class="contador-digito-texto">seg</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Botão para alternar entre projetos -->
+    <button id="alternar-projeto" class="alternar-projeto">Ver Relógio</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.js"></script>
+    <script>
+        // JavaScript combinado
+        document.addEventListener('DOMContentLoaded', function(){
+            // Acessibilidade (Guerra Fria)
+            const botaoDeAcessibilidade = document.getElementById('botao-acessibilidade')
+            const opcoesDeAcessibilidade = document.getElementById('opcoes-acessibilidade')
+         
+            botaoDeAcessibilidade.addEventListener('click', function (){
+             botaoDeAcessibilidade.classList.toggle('rotacao-botao');
+             opcoesDeAcessibilidade.classList.toggle('apresenta-lista')
+         
+             const botaoSelecionado = botaoDeAcessibilidade.getAttribute('aria-expanded') === 'true';
+             botaoDeAcessibilidade.setAttribute('aria-expanded', !botaoSelecionado)
+           
+            })
+         
+             const aumentaFonteBotao = document.getElementById('aumentar-fonte');
+             const diminuiFonteBotao = document.getElementById('diminuir-fonte');
+             
+             const alternaContraste = document.getElementById('alterna-contraste')
+         
+             let tamanhoAtualFonte = 1;
+         
+             aumentaFonteBotao.addEventListener('click', function(){
+                 tamanhoAtualFonte += 0.1;
+                 document.body.style.fontSize = `${tamanhoAtualFonte}rem`
+         
+             })
+         
+             diminuiFonteBotao.addEventListener('click', function(){
+                 tamanhoAtualFonte -= 0.1;
+                 document.body.style.fontSize = `${tamanhoAtualFonte}rem`
+         
+             })
+         
+             alternaContraste.addEventListener('click', function(){
+                 document.body.classList.toggle('alto-contraste')
+             })
+         
+            // Relógio
+            const botoesRelogio = document.querySelectorAll(".botao-relogio");
+            const textosRelogio = document.querySelectorAll(".aba-conteudo");
+            
+            for (let i = 0; i < botoesRelogio.length; i++) {
+                botoesRelogio[i].onclick = function () {
+                    for (let j = 0; j < botoesRelogio.length; j++) {
+                        botoesRelogio[j].classList.remove("ativo");
+                        textosRelogio[j].classList.remove("ativo");
+                    }
+                    botoesRelogio[i].classList.add("ativo");
+                    textosRelogio[i].classList.add("ativo");
+                }
+            }
+            
+            const contadores = document.querySelectorAll(".contador");
+            const tempoObjetivo1 = new Date("2025-04-12T00:00:00");
+            const tempoObjetivo2 = new Date("2025-04-01T00:00:00");
+            const tempoObjetivo3 = new Date("2025-11-09T00:00:00");
+            const tempoObjetivo4 = new Date("2025-12-01T00:00:00");
+            
+            const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+            
+            function calculaTempo(tempoObjetivo) {
+                let tempoAtual = new Date();
+                let tempoFinal = tempoObjetivo - tempoAtual;
+                let segundos = Math.floor(tempoFinal / 1000);
+                let minutos = Math.floor(segundos / 60);
+                let horas = Math.floor(minutos / 60);
+                let dias = Math.floor(horas / 24);
+            
+                segundos %= 60;
+                minutos %= 60;
+                horas %= 24;
+                if (tempoFinal > 0) {
+                    return [dias, horas, minutos, segundos];
+                } else {
+                    return [0, 0, 0, 0];
+                }
+            }
+            
+            function atualizaCronometro() {
+                for (let i = 0; i < contadores.length; i++) {
+                    document.getElementById("dias" + i).textContent = calculaTempo(tempos[i])[0];
+                    document.getElementById("horas" + i).textContent = calculaTempo(tempos[i])[1];
+                    document.getElementById("min" + i).textContent = calculaTempo(tempos[i])[2];
+                    document.getElementById("seg" + i).textContent = calculaTempo(tempos[i])[3];
+                }
+            }
+            
+            function comecaCronometro() {
+                atualizaCronometro();
+                setInterval(atualizaCronometro, 1000);
+            }
+            
+            comecaCronometro();
+            
+            // ScrollReveal
+            ScrollReveal().reveal('#inicio', { delay: 500 });
+            ScrollReveal().reveal('#tropicalia', { delay: 500 });
+            ScrollReveal().reveal('#galeria', { delay: 500 });
+            ScrollReveal().reveal('#contato', { delay: 500 });
+            
+            // Alternar entre projetos
+            const alternarProjetoBtn = document.getElementById('alternar-projeto');
+            const guerraFriaSection = document.getElementById('guerra-fria');
+            const relogioSection = document.getElementById('relogio');
+            
+            alternarProjetoBtn.addEventListener('click', function() {
+                if (guerraFriaSection.style.display === 'block') {
+                    guerraFriaSection.style.display = 'none';
+                    relogioSection.style.display = 'block';
+                    alternarProjetoBtn.textContent = 'Ver Guerra Fria';
+                } else {
+                    guerraFriaSection.style.display = 'block';
+                    relogioSection.style.display = 'none';
+                    alternarProjetoBtn.textContent = 'Ver Relógio';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
